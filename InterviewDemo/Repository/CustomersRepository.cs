@@ -1,4 +1,5 @@
 ﻿using InterviewDemo.Models;
+using InterviewDemo.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -69,7 +70,7 @@ namespace InterviewDemo.Repository
             }
         }
 
-        public bool Insert()
+        public bool Insert(InsertCustomerViewModel data)
         {
             bool result = true;
             string sql = string.Empty;
@@ -86,17 +87,17 @@ namespace InterviewDemo.Repository
                     (@firstname, @lastname, @age, @birthday, @email, GETDATE(), null)";
 
             DynamicParameters param = new DynamicParameters();
-            param.Add("firstname", null);
-            param.Add("lastname", null);
-            param.Add("age", null);
-            param.Add("birthday", null);
-            param.Add("email", null);
+            param.Add("firstname", data.firstname);
+            param.Add("lastname", data.lastname);
+            param.Add("age", data.age);
+            param.Add("birthday", data.birthday);
+            param.Add("email", data.email);
             
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString.DemoDB))
                 {
-                    conn.Execute(sql);
+                    conn.Execute(sql, param);
                 }
             }
             catch (Exception ex)
@@ -132,7 +133,7 @@ namespace InterviewDemo.Repository
             {
                 using (SqlConnection conn = new SqlConnection(connectionString.DemoDB))
                 {
-                    conn.Execute(sql);
+                    conn.Execute(sql, param);
                 }
             }
             catch (Exception ex)
@@ -157,7 +158,7 @@ namespace InterviewDemo.Repository
             {
                 using (SqlConnection conn = new SqlConnection(connectionString.DemoDB))
                 {
-                    conn.Execute(sql);
+                    conn.Execute(sql, param);
                 }
             }
             catch (Exception ex)

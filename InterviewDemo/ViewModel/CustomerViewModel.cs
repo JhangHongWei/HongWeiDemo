@@ -19,11 +19,11 @@ namespace InterviewDemo.ViewModel
         [Display(Name = "姓")]
         public string lastname { get; set; }
         [Display(Name = "年齡")]
-        public ushort age { get; set; }
+        public int age { get; set; }
         [Display(Name = "生日")]
         public DateTime birthday { get; set; }
         [Display(Name = "電子郵件")]
-        public int email { get; set; }
+        public string email { get; set; }
     }
 
     public class UpdateCustomerViewModel
@@ -38,6 +38,6 @@ namespace InterviewDemo.ViewModel
         [Display(Name = "生日")]
         public DateTime birthday { get; set; }
         [Display(Name = "電子郵件")]
-        public int email { get; set; }
+        public string email { get; set; }
     }
 }

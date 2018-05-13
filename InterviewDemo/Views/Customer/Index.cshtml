@@ -14,7 +14,7 @@
             string update = string.Empty;
             update = item.updatedate.HasValue ? ((DateTime)item.updatedate).ToString("yyyy/MM/dd hh:mm:ss") : "";
             <tr>
-                <td>@item.lastname@item.lastname</td>
+                <td>@item.lastname@item.firstname</td>
                 <td>@item.email</td>
                 <td>@item.age</td>
                 <td>@item.birthday.ToString("yyyy/MM/dd")</td>

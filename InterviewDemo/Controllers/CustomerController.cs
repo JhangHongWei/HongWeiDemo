@@ -24,5 +24,23 @@ namespace InterviewDemo.Controllers
 
             return View(viewdata);
         }
+
+        public ActionResult Insert()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Insert(InsertCustomerViewModel data)
+        {
+            var isInsert = this._CustomerLogic.InsertCustomer(data);
+
+            if (string.IsNullOrWhiteSpace(isInsert))
+            {
+                return RedirectToAction("Index", "Customer");
+            }
+
+            TempData["message"] = isInsert;
+            return View();
+        }
     }
 }
