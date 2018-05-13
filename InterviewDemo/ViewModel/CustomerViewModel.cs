@@ -34,9 +34,9 @@ namespace InterviewDemo.ViewModel
         [Display(Name = "姓")]
         public string lastname { get; set; }
         [Display(Name = "年齡")]
-        public ushort age { get; set; }
+        public int age { get; set; }
         [Display(Name = "生日")]
-        public DateTime birthday { get; set; }
+        public string birthday { get; set; }
         [Display(Name = "電子郵件")]
         public string email { get; set; }
     }

@@ -108,7 +108,7 @@ namespace InterviewDemo.Repository
             return result;
         }
 
-        public bool Update()
+        public bool Update(UpdateCustomerViewModel data)
         {
             bool result = true;
             string sql = string.Empty;
@@ -120,14 +120,16 @@ namespace InterviewDemo.Repository
                     age = @age,
                     birthday = @birthday,
                     email = @email,
-                    updatedate = GETDATE() ";
+                    updatedate = GETDATE() 
+                    WHERE id = @id ";
 
             DynamicParameters param = new DynamicParameters();
-            param.Add("firstname", null);
-            param.Add("lastname", null);
-            param.Add("age", null);
-            param.Add("birthday", null);
-            param.Add("email", null);
+            param.Add("firstname", data.firstname);
+            param.Add("lastname", data.lastname);
+            param.Add("age", data.age);
+            param.Add("birthday", data.birthday);
+            param.Add("email", data.email);
+            param.Add("id", data.id);
 
             try
             {

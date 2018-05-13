@@ -24,5 +24,32 @@ namespace InterviewDemo.Logic
             }
             return result;
         }
+
+        public UpdateCustomerViewModel GetCustomer(int Id)
+        {
+            UpdateCustomerViewModel reCustomerData = new UpdateCustomerViewModel();
+            CustomerModel CustomerData = this._CustomersRepository.GetOneById(Id);
+            if(CustomerData != null)
+            {
+                reCustomerData.id = CustomerData.id;
+                reCustomerData.firstname = CustomerData.firstname;
+                reCustomerData.lastname = CustomerData.lastname;
+                reCustomerData.age = CustomerData.age;
+                reCustomerData.email = CustomerData.email;
+                reCustomerData.birthday = CustomerData.birthday.ToString("yyyy/MM/dd");
+            }
+
+            return reCustomerData;
+        }
+
+        public string UpdateCustomer(UpdateCustomerViewModel data)
+        {
+            string result = string.Empty;
+            if (!this._CustomersRepository.Update(data))
+            {
+                result = "新增失敗";
+            }
+            return result;
+        }
     }
 }

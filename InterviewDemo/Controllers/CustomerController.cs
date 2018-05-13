@@ -42,5 +42,24 @@ namespace InterviewDemo.Controllers
             TempData["message"] = isInsert;
             return View();
         }
+
+        public ActionResult Update(int id)
+        {
+            var Customers = this._CustomerLogic.GetCustomer(id);
+            return View(Customers);
+        }
+        [HttpPost]
+        public ActionResult Update(UpdateCustomerViewModel data)
+        {
+            var isUpdate = this._CustomerLogic.UpdateCustomer(data);
+
+            if (string.IsNullOrWhiteSpace(isUpdate))
+            {
+                return RedirectToAction("Index", "Customer");
+            }
+
+            TempData["message"] = isUpdate;
+            return View();
+        }
     }
 }
