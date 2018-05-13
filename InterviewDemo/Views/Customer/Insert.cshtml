@@ -1,0 +1,62 @@
+﻿@model InterviewDemo.ViewModel.InsertCustomerViewModel
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insert</h2>
+
+@using (Html.BeginForm("Insert", "Customer", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(m=>m.lastname)
+            </td>
+            <td>
+                @Html.TextBoxFor(m=>m.lastname)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.firstname)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.firstname)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.email)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.age)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.age)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.birthday)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.birthday)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="送出" /></td>
+        </tr>
+    </table>
+}
+@if (TempData["message"] != null)
+{
+    <script type="text/javascript">
+        var message = "@Html.Raw(TempData["message"])";
+        alert(message);
+    </script>
+}
