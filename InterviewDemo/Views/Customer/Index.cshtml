@@ -5,7 +5,7 @@
 }
 
 <h2>Index</h2>
-
+<a href="@Url.Action("Insert","Customer")">新增</a>
 @if (Model.Customers.Any())
 {
     <table>
@@ -20,6 +20,8 @@
                 <td>@item.birthday.ToString("yyyy/MM/dd")</td>
                 <td>@item.createdate.ToString("yyyy/MM/dd hh:mm:ss")</td>
                 <td>@update</td>
+                <td><a href="@Url.Action("Update","Customer",new { Id = item.id})">修改</a></td>
+                <td><a href="@Url.Action("Delete","Customer",new { Id = item.id})">刪除</a></td>
             </tr>
         }
     </table>
