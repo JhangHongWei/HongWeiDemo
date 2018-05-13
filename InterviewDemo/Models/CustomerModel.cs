@@ -12,7 +12,7 @@ namespace InterviewDemo.Models
         public string lastname { get; set; }
         public ushort age { get; set; }
         public DateTime birthday { get; set; }
-        public int email { get; set; }
+        public string email { get; set; }
         public DateTime createdate { get; set; }
         public DateTime? updatedate { get; set; }
     }

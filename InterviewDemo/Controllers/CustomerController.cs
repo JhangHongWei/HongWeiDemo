@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using InterviewDemo.ViewModel;
+using InterviewDemo.Logic;
 namespace InterviewDemo.Controllers
 {
     public class CustomerController : Controller
     {
+        private CustomerLogic _CustomerLogic;
+        public CustomerController()
+        {
+            this._CustomerLogic = new CustomerLogic();
+        }
         // GET: Customer
         public ActionResult Index()
         {
-            return View();
+            var Customers = this._CustomerLogic.GetCustomers();
+
+            CustomerViewModel viewdata = new CustomerViewModel();
+            viewdata.Customers = Customers;
+
+            return View(viewdata);
         }
     }
 }
