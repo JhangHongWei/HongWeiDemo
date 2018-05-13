@@ -61,5 +61,15 @@ namespace InterviewDemo.Controllers
             TempData["message"] = isUpdate;
             return View();
         }
+
+        public ActionResult Delete(int id)
+        {
+            var isDelete = this._CustomerLogic.DeleteCustomer(id);
+            if (!isDelete)
+            {
+                TempData["message"] = "刪除失敗";
+            }
+            return RedirectToAction("Index", "Customer");
+        }
     }
 }

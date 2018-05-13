@@ -51,5 +51,11 @@ namespace InterviewDemo.Logic
             }
             return result;
         }
+
+        public bool DeleteCustomer(int Id)
+        {
+            bool result = this._CustomersRepository.Delete(Id);
+            return result;
+        }
     }
 }
